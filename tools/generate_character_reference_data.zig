@@ -149,19 +149,19 @@ fn render(node: *Node, al: Allocator) ![]u8 {
         \\
         \\/// If the 1st field is null, then the current string does not match any named character references.
         \\/// Otherwise, there is a match, and the 2nd field may or may not be null.
-        \\pub const Value = @Type(std.builtin.TypeInfo{ .Struct = .{
+        \\pub const Value = @Type(std.builtin.Type{ .Struct = .{
         \\    .layout = .Auto,
         \\    .fields = &.{
         \\        .{
         \\            .name = "0",
-        \\            .field_type = ?u21,
+        \\            .type = ?u21,
         \\            .default_value = null,
         \\            .is_comptime = false,
         \\            .alignment = @alignOf(?u21),
         \\        },
         \\        .{
         \\            .name = "1",
-        \\            .field_type = ?u21,
+        \\            .type = ?u21,
         \\            .default_value = null,
         \\            .is_comptime = false,
         \\            .alignment = @alignOf(?u21),
