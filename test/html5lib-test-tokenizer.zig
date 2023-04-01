@@ -192,8 +192,7 @@ fn runTest(
 
     if (last_start_tag) |lst| tokenizer.setLastStartTag(lst);
 
-    _ = async tokenizer.run();
-    while (tokenizer.frame) |frame| resume frame;
+    while (try tokenizer.run()) {}
 
     try std.testing.expect(all_tokens.items[all_tokens.items.len - 1] == .eof);
     std.testing.expectEqual(expected_tokens.len, all_tokens.items.len - 1) catch {
